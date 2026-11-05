@@ -10,6 +10,7 @@ import CharacterFormPage from './pages/CharacterFormPage'
 import CharactersPage from './pages/CharactersPage'
 import EncounterPage from './pages/EncounterPage'
 import EncountersPage from './pages/EncountersPage'
+import ExpensesPage from './pages/ExpensesPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/campaigns/:id" element={<CampaignNotesPage />} />
               <Route path="/encounters" element={<EncountersPage />} />
               <Route path="/encounters/:id" element={<EncounterPage />} />
+              <Route path="/expenses" element={<ExpensesPage />} />
               <Route path="/expenses/categories" element={<CategoriesPage />} />
             </Route>
 

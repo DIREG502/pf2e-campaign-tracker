@@ -17,7 +17,7 @@ function Layout() {
             <NavLink to="/characters">Characters</NavLink>
             <NavLink to="/campaigns">Campaigns</NavLink>
             <NavLink to="/encounters">Initiative</NavLink>
-            <NavLink to="/expenses">Expenses</NavLink>
+            <NavLink to="/expenses" end>Expenses</NavLink>
             <NavLink to="/expenses/charts">Charts</NavLink>
           </nav>
         )}

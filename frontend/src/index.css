@@ -517,3 +517,17 @@ legend {
 .align-end {
   align-self: flex-end;
 }
+
+/* ---------- Expenses ---------- */
+
+.filter-bar {
+  padding: 0.9rem 1.25rem;
+}
+
+.filter-bar .row {
+  align-items: flex-end;
+}
+
+.presets {
+  gap: 0.4rem;
+}
