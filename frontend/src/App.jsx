@@ -10,6 +10,7 @@ import CharacterFormPage from './pages/CharacterFormPage'
 import CharactersPage from './pages/CharactersPage'
 import EncounterPage from './pages/EncounterPage'
 import EncountersPage from './pages/EncountersPage'
+import ExpenseChartsPage from './pages/ExpenseChartsPage'
 import ExpensesPage from './pages/ExpensesPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -35,6 +36,7 @@ function App() {
               <Route path="/encounters/:id" element={<EncounterPage />} />
               <Route path="/expenses" element={<ExpensesPage />} />
               <Route path="/expenses/categories" element={<CategoriesPage />} />
+              <Route path="/expenses/charts" element={<ExpenseChartsPage />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />

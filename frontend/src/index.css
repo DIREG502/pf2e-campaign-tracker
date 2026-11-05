@@ -531,3 +531,53 @@ legend {
 .presets {
   gap: 0.4rem;
 }
+
+/* ---------- Charts ---------- */
+
+.stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-tile .label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.stat-tile .value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pie-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(240px, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.chart-box {
+  position: relative;
+  height: 320px;
+}
+
+table.compact th,
+table.compact td {
+  padding: 0.35rem 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .pie-layout {
+    grid-template-columns: 1fr;
+  }
+}
