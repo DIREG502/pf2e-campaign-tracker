@@ -17,6 +17,7 @@ builder.Services.AddScoped<InventoryService>();
 builder.Services.AddScoped<SessionNoteService>();
 builder.Services.AddScoped<EncounterService>();
 builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ExpenseService>();
 
 builder.Services.AddControllers();
 builder.Services.AddProblemDetails();
