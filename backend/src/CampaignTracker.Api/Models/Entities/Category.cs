@@ -8,7 +8,7 @@ public class Category
 
     public string Name { get; set; } = string.Empty;
 
-    /// <summary>Hex color used in charts, e.g. "#4e79a7".</summary>
+    /// <summary>Hex color used in charts, e.g. "#2a78d6".</summary>
     public string Color { get; set; } = "#888888";
 
     public List<Expense> Expenses { get; set; } = new();

@@ -3,7 +3,7 @@ import { categoriesApi } from '../api/expenses'
 import ErrorMessage from '../components/ErrorMessage'
 import { useFetch } from '../hooks/useFetch'
 
-const EMPTY_CATEGORY = { name: '', color: '#4e79a7' }
+const EMPTY_CATEGORY = { name: '', color: '#2a78d6' }
 
 function CategoriesPage() {
   const { data: categories, error: loadError, reload } = useFetch(() => categoriesApi.list())
