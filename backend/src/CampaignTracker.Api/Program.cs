@@ -12,6 +12,7 @@ builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<CampaignService>();
+builder.Services.AddScoped<CharacterService>();
 
 builder.Services.AddControllers();
 builder.Services.AddProblemDetails();
