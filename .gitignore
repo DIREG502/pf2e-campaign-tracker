@@ -1,0 +1,43 @@
+# --- .NET ---
+bin/
+obj/
+*.user
+*.suo
+*.rsuser
+.vs/
+TestResults/
+*.trx
+coverage*.xml
+
+# Local settings and secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# --- Node / Vite ---
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.local
+.env.*.local
+
+# Playwright
+test-results/
+playwright-report/
+
+# --- Editors / OS ---
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+.DS_Store
+Thumbs.db
