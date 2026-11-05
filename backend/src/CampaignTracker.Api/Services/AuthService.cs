@@ -38,6 +38,7 @@ public class AuthService
         user.PasswordHash = _passwordHasher.HashPassword(user, request.Password);
 
         _db.Users.Add(user);
+        _db.Categories.AddRange(DefaultCategories.For(user));
         await _db.SaveChangesAsync();
 
         return CreateResponse(user);
