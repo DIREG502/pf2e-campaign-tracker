@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import ProtectedRoute from './components/ProtectedRoute'
 import { AuthProvider } from './hooks/useAuth'
 import CampaignNotesPage from './pages/CampaignNotesPage'
+import CategoriesPage from './pages/CategoriesPage'
 import CampaignsPage from './pages/CampaignsPage'
 import CharacterDetailPage from './pages/CharacterDetailPage'
 import CharacterFormPage from './pages/CharacterFormPage'
@@ -31,6 +32,7 @@ function App() {
               <Route path="/campaigns/:id" element={<CampaignNotesPage />} />
               <Route path="/encounters" element={<EncountersPage />} />
               <Route path="/encounters/:id" element={<EncounterPage />} />
+              <Route path="/expenses/categories" element={<CategoriesPage />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />
