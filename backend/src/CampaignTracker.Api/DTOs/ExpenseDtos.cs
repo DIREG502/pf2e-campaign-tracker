@@ -4,7 +4,11 @@ namespace CampaignTracker.Api.DTOs;
 
 public class ExpenseRequest
 {
-    [Range(typeof(decimal), "0.01", "1000000", ErrorMessage = "Amount must be between 0.01 and 1,000,000.")]
+    // The limits are strings, so parse them invariantly; otherwise "0.01" fails on e.g. a German server.
+    [Range(typeof(decimal), "0.01", "1000000",
+        ParseLimitsInInvariantCulture = true,
+        ConvertValueInInvariantCulture = true,
+        ErrorMessage = "Amount must be between 0.01 and 1,000,000.")]
     public decimal Amount { get; set; }
 
     [Required]
