@@ -1,3 +1,4 @@
+using System.Text;
 using CampaignTracker.Api.Auth;
 using CampaignTracker.Api.DTOs;
 using CampaignTracker.Api.Services;
@@ -32,6 +33,21 @@ public class ExpensesController : ControllerBase
     {
         var expenses = await _expenses.GetAllAsync(User.GetUserId(), filter);
         return ExpenseReportService.Summarize(expenses);
+    }
+
+    /// <summary>Downloads the filtered expenses as a CSV file.</summary>
+    [HttpGet("export")]
+    [Produces("text/csv")]
+    public async Task<IActionResult> Export([FromQuery] ExpenseFilter filter)
+    {
+        var expenses = await _expenses.GetAllAsync(User.GetUserId(), filter);
+        var csv = ExpenseCsvExporter.ToCsv(expenses.OrderBy(e => e.Date).ThenBy(e => e.Id));
+
+        // The UTF-8 BOM makes Excel detect the encoding (umlauts, emoji in descriptions).
+        var bytes = Encoding.UTF8.GetPreamble().Concat(Encoding.UTF8.GetBytes(csv)).ToArray();
+        var fileName = $"expenses-{DateTime.UtcNow:yyyyMMdd}.csv";
+
+        return File(bytes, "text/csv; charset=utf-8", fileName);
     }
 
     [HttpGet("{id:int}")]
