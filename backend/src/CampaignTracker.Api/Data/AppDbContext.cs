@@ -1,5 +1,6 @@
 using CampaignTracker.Api.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CampaignTracker.Api.Data;
 
@@ -18,6 +19,21 @@ public class AppDbContext : DbContext
     public DbSet<Combatant> Combatants => Set<Combatant>();
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<Expense> Expenses => Set<Expense>();
+
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        // All timestamps are written as UTC. SQLite does not store the kind, so mark
+        // values as UTC when reading them back; otherwise the JSON loses its "Z" suffix.
+        configurationBuilder.Properties<DateTime>().HaveConversion<UtcDateTimeConverter>();
+    }
+
+    private class UtcDateTimeConverter : ValueConverter<DateTime, DateTime>
+    {
+        public UtcDateTimeConverter()
+            : base(v => v.ToUniversalTime(), v => DateTime.SpecifyKind(v, DateTimeKind.Utc))
+        {
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
