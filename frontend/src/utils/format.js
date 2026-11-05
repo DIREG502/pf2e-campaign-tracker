@@ -9,6 +9,13 @@ export function formatMoney(value) {
   return currency.format(value)
 }
 
+const wholeCurrency = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })
+
+/** Money without cents, for chart axes. */
+export function formatMoneyShort(value) {
+  return wholeCurrency.format(value)
+}
+
 /** PF2e bulk: 0.1 is shown as "L", 0 as "–". */
 export function formatBulk(value) {
   if (value === 0) return '–'

@@ -1,6 +1,6 @@
 import { BarElement, CategoryScale, Chart as ChartJS, LinearScale, Tooltip } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-import { formatMoney } from '../utils/format'
+import { formatMoney, formatMoneyShort } from '../utils/format'
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip)
 
@@ -40,7 +40,7 @@ function MonthlyBarChart({ byMonth }) {
         beginAtZero: true,
         border: { display: false },
         grid: { color: '#ece8e1' },
-        ticks: { callback: (value) => formatMoney(value) },
+        ticks: { callback: (value) => formatMoneyShort(value) },
       },
     },
   }
