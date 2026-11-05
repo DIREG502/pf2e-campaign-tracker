@@ -13,11 +13,17 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddControllers();
+builder.Services.AddProblemDetails();
 builder.Services.AddSwaggerWithJwt();
 
 var app = builder.Build();
 
 await app.MigrateDatabaseAsync();
+
+// Unhandled exceptions and empty error responses (e.g. 401 from the JWT handler)
+// are returned as RFC 7807 ProblemDetails, same as validation errors.
+app.UseExceptionHandler();
+app.UseStatusCodePages();
 
 if (app.Environment.IsDevelopment())
 {
