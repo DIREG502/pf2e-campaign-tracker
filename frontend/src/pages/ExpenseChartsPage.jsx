@@ -2,6 +2,7 @@ import { expensesApi } from '../api/expenses'
 import CategoryPieChart from '../components/CategoryPieChart'
 import ErrorMessage from '../components/ErrorMessage'
 import ExpenseFilterBar from '../components/ExpenseFilterBar'
+import MonthlyBarChart from '../components/MonthlyBarChart'
 import { useExpenseFilter } from '../hooks/useExpenseFilter'
 import { useFetch } from '../hooks/useFetch'
 import { formatMoney } from '../utils/format'
@@ -47,6 +48,11 @@ function ExpenseChartsPage() {
           <section className="card">
             <h2>By category</h2>
             <CategoryPieChart byCategory={summary.byCategory} total={summary.total} />
+          </section>
+
+          <section className="card">
+            <h2>Total per month</h2>
+            <MonthlyBarChart byMonth={summary.byMonth} />
           </section>
         </>
       )}
