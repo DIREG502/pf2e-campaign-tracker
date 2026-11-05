@@ -15,6 +15,7 @@ builder.Services.AddScoped<CampaignService>();
 builder.Services.AddScoped<CharacterService>();
 builder.Services.AddScoped<InventoryService>();
 builder.Services.AddScoped<SessionNoteService>();
+builder.Services.AddScoped<EncounterService>();
 
 builder.Services.AddControllers();
 builder.Services.AddProblemDetails();
