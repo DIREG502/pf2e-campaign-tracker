@@ -37,7 +37,8 @@ async function login() {
 
 function isoDate(monthsAgo, day) {
   const now = new Date()
-  const date = new Date(now.getFullYear(), now.getMonth() - monthsAgo, day)
+  let date = new Date(now.getFullYear(), now.getMonth() - monthsAgo, day)
+  if (date > now) date = now // keep demo data in the past
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
 }
 
