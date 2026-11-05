@@ -1,19 +1,22 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import ProtectedRoute from './components/ProtectedRoute'
 import { AuthProvider } from './hooks/useAuth'
 import CampaignNotesPage from './pages/CampaignNotesPage'
-import CategoriesPage from './pages/CategoriesPage'
 import CampaignsPage from './pages/CampaignsPage'
+import CategoriesPage from './pages/CategoriesPage'
 import CharacterDetailPage from './pages/CharacterDetailPage'
 import CharacterFormPage from './pages/CharacterFormPage'
 import CharactersPage from './pages/CharactersPage'
 import EncounterPage from './pages/EncounterPage'
 import EncountersPage from './pages/EncountersPage'
-import ExpenseChartsPage from './pages/ExpenseChartsPage'
 import ExpensesPage from './pages/ExpensesPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+
+// Chart.js is big, so it is only loaded when the charts page is opened.
+const ExpenseChartsPage = lazy(() => import('./pages/ExpenseChartsPage'))
 
 function App() {
   return (
@@ -36,7 +39,14 @@ function App() {
               <Route path="/encounters/:id" element={<EncounterPage />} />
               <Route path="/expenses" element={<ExpensesPage />} />
               <Route path="/expenses/categories" element={<CategoriesPage />} />
-              <Route path="/expenses/charts" element={<ExpenseChartsPage />} />
+              <Route
+                path="/expenses/charts"
+                element={
+                  <Suspense fallback={<p className="muted">Loading charts…</p>}>
+                    <ExpenseChartsPage />
+                  </Suspense>
+                }
+              />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />
