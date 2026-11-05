@@ -7,11 +7,15 @@ namespace CampaignTracker.Api.Services;
 /// </summary>
 public static class InitiativeOrder
 {
-    /// <summary>Highest initiative first.</summary>
+    /// <summary>
+    /// Highest initiative first. On a tie, PF2e has adversaries act before player
+    /// characters, so non-PCs come first. Remaining ties fall back to name.
+    /// </summary>
     public static List<Combatant> Sort(IEnumerable<Combatant> combatants)
     {
         return combatants
             .OrderByDescending(c => c.Initiative)
+            .ThenBy(c => c.IsPlayerCharacter)
             .ThenBy(c => c.Name, StringComparer.OrdinalIgnoreCase)
             .ThenBy(c => c.Id)
             .ToList();
