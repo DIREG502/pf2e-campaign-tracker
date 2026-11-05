@@ -7,6 +7,8 @@ import CampaignsPage from './pages/CampaignsPage'
 import CharacterDetailPage from './pages/CharacterDetailPage'
 import CharacterFormPage from './pages/CharacterFormPage'
 import CharactersPage from './pages/CharactersPage'
+import EncounterPage from './pages/EncounterPage'
+import EncountersPage from './pages/EncountersPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 
@@ -27,6 +29,8 @@ function App() {
               <Route path="/characters/:id/edit" element={<CharacterFormPage />} />
               <Route path="/campaigns" element={<CampaignsPage />} />
               <Route path="/campaigns/:id" element={<CampaignNotesPage />} />
+              <Route path="/encounters" element={<EncountersPage />} />
+              <Route path="/encounters/:id" element={<EncounterPage />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />

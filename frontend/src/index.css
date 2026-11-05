@@ -440,3 +440,80 @@ legend {
   border-left: 3px solid var(--accent-soft);
   color: var(--muted);
 }
+
+/* ---------- Initiative tracker ---------- */
+
+.round-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.2rem 0.9rem;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.round-counter .label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.round-counter .value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.current-banner {
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+}
+
+.initiative-table tr.current-turn {
+  background: var(--accent-soft);
+}
+
+.turn-marker {
+  width: 1.5rem;
+  color: var(--accent);
+}
+
+.initiative-input,
+.hp-input {
+  width: 4.2rem;
+}
+
+.hp-cell .row {
+  gap: 0.35rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: nowrap;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.badge.pc {
+  background: #e3f0e4;
+  color: var(--ok);
+}
+
+.badge.npc {
+  background: #fbe9e7;
+  color: var(--danger);
+}
+
+.add-combatants {
+  margin-top: 1rem;
+}
+
+.align-end {
+  align-self: flex-end;
+}
