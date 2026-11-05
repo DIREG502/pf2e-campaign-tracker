@@ -28,6 +28,16 @@ function ExpensesPage() {
     reload()
   }
 
+  // Exports exactly what the table shows: the backend applies the same filter.
+  const handleExport = async () => {
+    setActionError(null)
+    try {
+      await expensesApi.exportCsv(filter)
+    } catch (err) {
+      setActionError(err)
+    }
+  }
+
   const handleDelete = async (expense) => {
     if (!window.confirm(`Delete "${expense.description}"?`)) return
     await expensesApi.remove(expense.id)
@@ -40,6 +50,9 @@ function ExpensesPage() {
         <h1>Expenses</h1>
         <div className="row">
           <Link to="/expenses/categories">Manage categories</Link>
+          <button className="secondary" onClick={handleExport} disabled={!expenses?.length}>
+            Export CSV
+          </button>
         </div>
       </div>
 
