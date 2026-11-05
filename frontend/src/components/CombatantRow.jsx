@@ -76,6 +76,7 @@ function CombatantRow({ combatant, isCurrent, onUpdate, onRemove }) {
           value={conditions}
           onChange={(e) => setConditions(e.target.value)}
           onBlur={() =>
+            conditions !== savedConditions &&
             save({ conditions: conditions.split(',').map((c) => c.trim()).filter(Boolean) })
           }
           onKeyDown={saveOnEnter}
