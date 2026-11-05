@@ -26,6 +26,14 @@ public class ExpensesController : ControllerBase
         return await _expenses.GetAllAsync(User.GetUserId(), filter);
     }
 
+    /// <summary>Totals by category and by month for the charts.</summary>
+    [HttpGet("summary")]
+    public async Task<ActionResult<ExpenseSummaryDto>> Summary([FromQuery] ExpenseFilter filter)
+    {
+        var expenses = await _expenses.GetAllAsync(User.GetUserId(), filter);
+        return ExpenseReportService.Summarize(expenses);
+    }
+
     [HttpGet("{id:int}")]
     public async Task<ActionResult<ExpenseDto>> Get(int id)
     {
