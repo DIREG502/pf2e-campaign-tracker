@@ -79,7 +79,7 @@ function CombatantRow({ combatant, isCurrent, onUpdate, onRemove }) {
             save({ conditions: conditions.split(',').map((c) => c.trim()).filter(Boolean) })
           }
           onKeyDown={saveOnEnter}
-          placeholder="frightened 1, off-guard"
+          placeholder="+ add condition"
           aria-label={`Conditions of ${combatant.name}`}
         />
       </td>

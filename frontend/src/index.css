@@ -581,3 +581,8 @@ table.compact td {
     grid-template-columns: 1fr;
   }
 }
+
+input::placeholder {
+  color: #b3aba1;
+  font-style: italic;
+}
