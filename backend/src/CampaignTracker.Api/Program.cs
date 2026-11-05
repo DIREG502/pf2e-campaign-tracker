@@ -13,6 +13,7 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<CampaignService>();
 builder.Services.AddScoped<CharacterService>();
+builder.Services.AddScoped<InventoryService>();
 
 builder.Services.AddControllers();
 builder.Services.AddProblemDetails();
