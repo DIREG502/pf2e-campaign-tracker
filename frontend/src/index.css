@@ -395,3 +395,14 @@ legend {
   font-weight: 600;
   padding: 0 0.3rem;
 }
+
+.notes {
+  white-space: pre-wrap;
+  margin: 1rem 0 0;
+}
+
+.inventory-form {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
