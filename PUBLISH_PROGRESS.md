@@ -30,4 +30,13 @@ was published. Nothing is backdated.
   switch, and the initial migration.
 - Added this file.
 
-**Next:** Stage 2 – backend API (commits 13–31).
+### Stage 2 – 2026-11-07
+
+- Pushed commits 13–31: JWT authentication with register/login/me, Swagger "Authorize" support,
+  ProblemDetails error responses, endpoints for campaigns, characters, inventory, session notes,
+  encounters/combatants (with the PF2e initiative tie rule), categories (with seeded defaults),
+  expenses with date filter, expense summary and CSV export, CORS, and two fixes
+  (amount validation on non-English cultures, UTC timestamps from SQLite).
+- Checked that the pushed tree matches the original commit 31 and builds without warnings.
+
+**Next:** Stage 3 – frontend (commits 32–47).
