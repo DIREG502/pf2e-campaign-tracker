@@ -39,4 +39,14 @@ was published. Nothing is backdated.
   (amount validation on non-English cultures, UTC timestamps from SQLite).
 - Checked that the pushed tree matches the original commit 31 and builds without warnings.
 
-**Next:** Stage 3 – frontend (commits 32–47).
+### Stage 3 – 2026-11-08
+
+- Pushed commits 32–47: Vite + React scaffold, fetch-based API client with JWT handling, auth context,
+  routing and layout, login/register, base styles, and pages for characters (list, form, detail with
+  inventory), campaigns, session notes, encounters, the initiative tracker, categories and expenses
+  with date filter and CSV export button.
+- Checked that the pushed tree matches the original commit 47, that the backend builds without
+  warnings, and that the frontend builds after a clean `npm ci`.
+- Known until stage 4: the "Charts" link in the navigation has no page yet and redirects to the start page.
+
+**Next:** Stage 4 – charts, demo seed script, UI polish (commits 48–56).
