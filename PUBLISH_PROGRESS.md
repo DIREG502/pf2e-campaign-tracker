@@ -49,4 +49,13 @@ was published. Nothing is backdated.
   warnings, and that the frontend builds after a clean `npm ci`.
 - Known until stage 4: the "Charts" link in the navigation has no page yet and redirects to the start page.
 
-**Next:** Stage 4 – charts, demo seed script, UI polish (commits 48–56).
+### Stage 4 – 2026-11-09
+
+- Pushed commits 48–56: colorblind-friendly default category colors, expense pie chart by category,
+  monthly bar chart, lazy loading of the charts page (this closes the "Charts" link gap from stage 3),
+  demo data seed script, and small UI fixes for the initiative tracker and the chart axis.
+- Checked that the pushed tree matches the original commit 56, that the backend builds without
+  warnings, that the frontend builds after a clean `npm ci`, and that the seed script parses.
+- Known until stage 5: light items in the inventory show as "1L" instead of "L".
+
+**Next:** Stage 5 – xUnit tests and the fixes found while testing (commits 57–64).
